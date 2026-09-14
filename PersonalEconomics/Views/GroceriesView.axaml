@@ -1,0 +1,42 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.GroceriesView"
+    x:DataType="vm:GroceriesViewModel">
+    
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="600" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Width="110" Height="35" Margin="10,15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Vegetables"/>
+            <TextBox    Width="160" Height="35" Margin="170,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding VegetablesTextBox}" TextChanged="VegetablesTextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Meat"/>
+            <TextBox    Width="160" Height="35" Margin="170,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding MeatTextBox}" TextChanged="MeatTextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="10,115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Fish"/>
+            <TextBox    Width="160" Height="35" Margin="170,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding FishTextBox}" TextChanged="FishTextBox_changed"/>
+
+            <TextBlock  Width="160" Height="35" Margin="10,165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Canned Products"/>
+            <TextBox    Width="160" Height="35" Margin="170,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding CannedProductsTextBox}" TextChanged="CannedProductsTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,215" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Candy"/>
+            <TextBox    Width="160" Height="35" Margin="170,210" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding CandyTextBox}" TextChanged="CandyTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,265" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Soda"/>
+            <TextBox    Width="160" Height="35" Margin="170,260" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding SodaTextBox}" TextChanged="SodaTextBox_changed"/>
+
+            <TextBlock  Width="160" Height="40" Margin="10,315" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Household Items"/>
+            <TextBox    Width="160" Height="35" Margin="170,310" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HouseholdItemsTextBox}" TextChanged="HouseholdItemsTextBox_changed"/>
+
+            <TextBlock  Width="160" Height="40" Margin="10,365" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Other Items"/>
+            <TextBox    Width="160" Height="35" Margin="170,360" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding OtherItemsTextBox}" TextChanged="OtherItemsTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,410" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Total"/>
+            <TextBlock  Width="165" Height="35" Margin="170,410" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" TextAlignment="Center" Text="{Binding TotalTextBox}"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,465" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note"/>
+            <TextBox    Width="320" Height="100" Margin="20,490" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding NoteTextBox}" TextChanged="NoteTextBox_changed"/>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

@@ -1,0 +1,63 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.PersonalCareGroomingView"
+    x:DataType="vm:PersonalCareGroomingViewModel">
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="1060" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <!--    Life Insurance section       -->
+            <TextBlock Margin="020,020" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Left" Text="Life insurance:"/>
+            <Border Width="290" Height="300" Margin="040,40" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+                <Grid>
+                    <TextBlock  Width="160" Height="35" Margin="10, 15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Company name:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding LifeInsurance_Company_TextBox}" TextChanged="LifeInsurance_Company_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Insurance Type:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding LifeInsurance_Type_TextBox}" TextChanged="LifeInsurance_Type_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Amount:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding LifeInsurance_Amount_TextBox}" TextChanged="LifeInsurance_Amount_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note:"/>
+                    <TextBox    Width="250" Height="90" Margin="20, 190" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="{Binding LifeInsurance_Note_TextBox}" TextChanged="LifeInsurance_Note_TextBox_changed" />
+                </Grid>
+            </Border>
+
+            <!--    Health Insurance section       -->
+            <TextBlock Margin="020,370" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Left" Text="Health insurance:"/>
+            <Border Width="290" Height="300" Margin="040,390" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+                <Grid>
+                    <TextBlock  Width="160" Height="35" Margin="10, 15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Company name:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HealthInsurance_Company_TextBox}" TextChanged="HealthInsurance_Company_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Insurance Type:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HealthInsurance_Type_TextBox}" TextChanged="HealthInsurance_Type_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Amount:"/>
+                    <TextBox    Width="120" Height="35" Margin="160,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HealthInsurance_Amount_TextBox}" TextChanged="HealthInsurance_Amount_TextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note:"/>
+                    <TextBox    Width="250" Height="90" Margin="20, 190" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="{Binding HealthInsurance_Note_TextBox}" TextChanged="HealthInsurance_Note_TextBox_changed" />
+                </Grid>
+            </Border>
+
+            <TextBlock  Width="160" Height="35" Margin="10,715" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Hygiene products"/>
+            <TextBox    Width="160" Height="35" Margin="170,710" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HygieneProducts_TextBox}" TextChanged="HygieneProducts_TextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="10,765" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Clothes"/>
+            <TextBox    Width="160" Height="35" Margin="170,760" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Clothes_TextBox}" TextChanged="Clothes_TextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="10,815" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Haircuts"/>
+            <TextBox    Width="160" Height="35" Margin="170,810" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Haircuts_TextBox}" TextChanged="Haircuts_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="010,860" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Total"/>
+            <TextBlock  Width="160" Height="35" Margin="175,865" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" TextAlignment="Center" Text="{Binding Total_TextBox}"/>
+
+            <TextBlock  Width="110" Height="035" Margin="010,915" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note"/>
+            <TextBox    Width="320" Height="100" Margin="020,940" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Note_TextBox}" TextChanged="Note_TextBox_changed"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

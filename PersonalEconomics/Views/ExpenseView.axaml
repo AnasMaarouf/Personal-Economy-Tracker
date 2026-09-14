@@ -1,0 +1,128 @@
+<UserControl 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="using:Personal_Economy_Display.Views"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.ExpenseView"
+    x:DataType="vm:ExpenseViewModel"
+    x:Name="Root">
+
+    <Grid Width="900" Height="520" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Width="360" Height="500" Margin="10,10" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+            <Grid Margin="05,05" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!-- Expenses -->
+
+                <!-- View category -->
+                <ContentControl Content="{Binding SelectedCategory}">
+                    <ContentControl.DataTemplates>
+                        <DataTemplate DataType="vm:ApartmentViewModel">
+                            <ScrollViewer>
+                                <views:ApartmentView/>
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="vm:GroceriesViewModel">
+                            <ScrollViewer>
+                                <views:GroceriesView />
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="vm:EntertainmentViewModel">
+                            <ScrollViewer>
+                                <views:EntertainmentView />
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="vm:PersonalCareGroomingViewModel">
+                            <ScrollViewer>
+                                <views:PersonalCareGroomingView />
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="vm:VehicleViewModel">
+                            <ScrollViewer>
+                                <views:VehicleView />
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="vm:ExpenseMiscellaneousViewModel">
+                            <ScrollViewer>
+                                <views:ExpenseMiscellaneousView />
+                            </ScrollViewer>
+                        </DataTemplate>
+
+                    </ContentControl.DataTemplates>
+                </ContentControl>
+                
+            </Grid>
+        </Border>
+        
+        <Border Width="250" Height="415" Margin="380,95" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+            <TreeView Background="Transparent" BorderThickness="0" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Tapped="OnSelectedCategoryChanged">
+
+                <TreeView.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <!-- Name of category -->
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="12"/>
+
+                            <!-- + button for Apartment parent -->
+                            <Button Background="Transparent" Width="32" Height="32" IsVisible="{Binding IsCategoryRoot}" Command="{Binding #Root.DataContext.AddCategoryCommand}" CommandParameter="{Binding}" Content="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                            <!-- X button for apartment children -->
+                            <Button Background="Transparent" Width="32" Height="32" IsVisible="{Binding CanDelete}" Command="{Binding #Root.DataContext.RemoveCategoryCommand}" CommandParameter="{Binding}" Content="✕" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                        </StackPanel>
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+
+            </TreeView>
+        </Border>
+
+        <Grid Width="250" Height="250" Margin="380,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <!-- Calendar to choose the date of the specific entry -->
+            <CalendarDatePicker Width="175" Height="35" Margin="0,10" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectedDate="{Binding PickedDate}" SelectedDateChanged="selectedDate_Changed"/>
+            <Button             Width="175" Height="35" Margin="0,50" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Add Entry [Expense]" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="AddEntryFiles_Button_Click"/>
+        </Grid>
+
+        <Grid Width="250" Height="500" Margin="640,10" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border DragDrop.AllowDrop="True" DragDrop.Drop="Expense_OnDrop" DragDrop.DragOver="Expense_OnDragOver" DragDrop.DragEnter="Expense_OnDragEnter" DragDrop.DragLeave="Expense_OnDragLeave" BorderBrush="#00000000" BorderThickness="1" CornerRadius="5" Padding="0" Background="Transparent">
+                <Grid>
+                    <Border Width="230" Height="100" Margin="10,10" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Background="{Binding Expense_DragNDrop_Box_BackgroundColor}" CornerRadius="5">
+                        <Image Width="200" Height="100" Margin="0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Assets/DragNDropImage.png"/>
+                    </Border>
+                    <Border Width="250" Height="500" Margin="0,0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <ScrollViewer Height="380" Margin="5,115" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderThickness="1" >
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <ItemsControl ItemsSource="{Binding Files}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Width="150" Height="180" Margin="8" BorderBrush="LightGray" BorderThickness="0" CornerRadius="4">
+                                                <Grid Width="150" Height="180">
+                                                    <Image Source="{Binding Thumbnail}" Stretch="UniformToFill"/>
+
+                                                    <!-- Remove button -->
+                                                    <Button Content="X" Width="24" Height="22" FontSize="8" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Red" Foreground="White" FontWeight="Bold" Click="RemoveExpenseFile_Click"/>
+                                                    <Border Background="#80000000" VerticalAlignment="Bottom" Padding="5">
+                                                        <TextBlock Text="{Binding FileName}" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" MaxLines="2"/>
+                                                    </Border>
+
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Viewbox>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

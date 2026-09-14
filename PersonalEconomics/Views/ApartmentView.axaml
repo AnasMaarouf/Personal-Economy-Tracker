@@ -1,0 +1,108 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.ApartmentView"
+    x:DataType="vm:ApartmentViewModel"
+    x:Name="Root">
+
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="1550" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Width="110" Height="35" Margin="10,15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Landlord:"/>
+            <TextBox    Width="150" Height="35" Margin="120,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding LandlordTextBox}" TextChanged="LandlordTextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Address:"/>
+            <TextBox    Width="150" Height="35" Margin="120,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding AddressTextBox}" TextChanged="AddressTextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="10,115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Rent:"/>
+            <TextBox    Width="150" Height="35" Margin="120,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding RentTextBox}" TextChanged="RentTextBox_changed"/>
+
+            <!--    Utilities section       -->
+            <TextBlock  Width="110" Height="35" Margin="10,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" TextAlignment="Left" Text="Utilities:"/>
+            <Border Width="290" Height="400" Margin="60,200" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+                <Grid>
+                    <TextBlock  Width="160" Height="35" Margin="10, 15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Electricity:"/>
+                    <TextBox    Width="110" Height="35" Margin="170,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Utilities_ElectricityTextBox}" TextChanged="Utilities_ElectricityTextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Water:"/>
+                    <TextBox    Width="110" Height="35" Margin="170,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Utilities_WaterTextBox}" TextChanged="Utilities_WaterTextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Heating:"/>
+                    <TextBox    Width="110" Height="35" Margin="170,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Utilities_HeatingTextBox}" TextChanged="Utilities_HeatingTextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Laundromat:"/>
+                    <TextBox    Width="110" Height="35" Margin="170,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Utilities_LaundromatTextBox}" TextChanged="Utilities_LaundromatTextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 215" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Internet:"/>
+                    <TextBox    Width="110" Height="35" Margin="170,210" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Utilities_InternetTextBox}" TextChanged="Utilities_InternetTextBox_changed"/>
+
+                    <TextBlock  Width="160" Height="35" Margin="10, 265" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note:"/>
+                    <TextBox    Width="250" Height="90" Margin="20, 290" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="WrapWithOverflow" Text="{Binding Utilities_NoteTextBox}" TextChanged="Utilities_NoteTextBox_changed"/>
+                </Grid>
+            </Border>
+
+            <TextBlock  Width="110" Height="35" Margin="010,615" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Furniture:"/>
+            <TextBox    Width="150" Height="35" Margin="120,610" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding FurnitureTextBox}" TextChanged="FurnitureTextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="010,665" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Repairs:"/>
+            <TextBox    Width="150" Height="35" Margin="120,660" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding RepairsTextBox}" TextChanged="RepairsTextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="010,715" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Mortgage:"/>
+            <TextBox    Width="150" Height="35" Margin="120,710" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding MortgageTextBox}" TextChanged="MortgageTextBox_changed"/>
+
+            <StackPanel Margin="10,770" Width="340" Height="600" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <!-- Header for name for section dedicated to add/remove insurance for apartment. -->
+                <TextBlock Margin="00,00" Text="Insurances" FontWeight="Bold"/>
+
+                <!-- Button for creating a new instance of insurance for apartment. -->
+                <Button Margin="00,5" Content="Add new insurance" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding $parent[UserControl].DataContext.AddInsuranceCommand}" />
+
+                <!-- Header for name for section dedicated to add/remove insurance for apartment. -->
+                <ListBox Margin="00,5" Width="340" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" ItemsSource="{Binding Insurances, Mode=TwoWay}" SelectedItem="{Binding SelectedHomeInsurancesExpenseListBox, Mode=TwoWay}" SelectionChanged="SelectedHomeInsurancesExpenseListBox_SelectionChanged" BorderThickness="1">
+                    <!-- Item template for listbox to display instances of insurances. -->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Grid inside the listbox to position the items. -->
+                            <Grid ColumnDefinitions="*,Auto" Margin="5">
+                                <!-- Item name of the specific instance. -->
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+
+                                <!-- Button for item deletion. -->
+                                <Button Grid.Column="1" Width="24" Height="24" FontSize="12" Content="✕" Command="{Binding $parent[UserControl].DataContext.DeleteInsuranceCommand}" CommandParameter="{Binding}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+            <!-- Section: Displaying selected insurance -->
+            <StackPanel Margin="10,1050" Spacing="10" Width="340" Height="330" VerticalAlignment="Top" HorizontalAlignment="Left" IsVisible="{Binding InsuranceSectionVisible}">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Left" Text="Selected insurance:"/>
+                <Border Width="290" Height="280" Margin="050,00" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Background="Transparent">
+                    <Grid>
+                        <TextBlock  Width="160" Height="35" Margin="10, 15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Company name:"/>
+                        <TextBox    Width="110" Height="35" Margin="170,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding InsuranceCompany_TextBox}" TextChanged="InsuranceCompany_TextBox_TextChanged"/>
+
+                        <TextBlock  Width="160" Height="35" Margin="10, 65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Insurance Type:"/>
+                        <TextBox    Width="110" Height="35" Margin="170,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding InsuranceType_TextBox}" TextChanged="InsuranceType_TextBox_TextChanged"/>
+
+                        <TextBlock  Width="160" Height="35" Margin="10, 115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Amount:"/>
+                        <TextBox    Width="110" Height="35" Margin="170,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding InsuranceAmount_TextBox}" TextChanged="InsuranceAmount_TextBox_TextChanged"/>
+
+                        <TextBlock  Width="160" Height="35" Margin="10, 145" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note:"/>
+                        <TextBox    Width="250" Height="90" Margin="20, 170" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="{Binding InsuranceNote_TextBox}" TextChanged="InsuranceNote_TextBox_TextChanged" />
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <!-- Section: Displaying apartment total -->
+            <TextBlock  Width="110" Height="35" Margin="010,1370" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left"   Text="Total:"/>
+            <TextBlock  Width="150" Height="35" Margin="120,1370" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" Text="{Binding TotalTextBox}"/>
+
+            <!-- Section: Displaying apartment note -->
+            <TextBlock  Width="110" Height="35" Margin="010,1400" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note:"/>
+            <TextBox    Width="320" Height="100" Margin="020,1430" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding NoteTextBox}" TextChanged="NoteTextBox_changed"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

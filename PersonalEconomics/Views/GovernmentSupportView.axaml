@@ -1,0 +1,25 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.GovernmentSupportView"
+    x:DataType="vm:GovernmentSupportViewModel"
+    >
+
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="560" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Width="150" Height="35" Margin="10,15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Government Name"/>
+            <TextBox    Width="150" Height="35" Margin="160,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding GovernmentName_TextBox}" TextChanged="GovernmentName_TextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Support Type"/>
+            <TextBox    Width="150" Height="35" Margin="160,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding SupportType_TextBox}" TextChanged="SupportType_TextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="10,115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Amount"/>
+            <TextBox    Width="150" Height="35" Margin="160,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Amount_TextBox}" TextChanged="Amount_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="40" Margin="10,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note"/>
+            <TextBox    Width="320" Height="100" Margin="20,200" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Note_TextBox}" TextChanged="Note_TextBox_changed"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

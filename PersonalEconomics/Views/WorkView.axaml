@@ -1,0 +1,33 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.WorkView"
+    x:DataType="vm:WorkViewModel">
+
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="560" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Width="150" Height="35" Margin="10,15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Company Name"/>
+            <TextBox    Width="150" Height="35" Margin="160,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Company_TextBox}" TextChanged="Company_TextBox_changed"/>
+            
+            <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Position"/>
+            <TextBox    Width="150" Height="35" Margin="160,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Position_TextBox}" TextChanged="Position_TextBox_changed"/>
+        
+            <TextBlock  Width="110" Height="35" Margin="10,115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Salary"/>
+            <TextBox    Width="150" Height="35" Margin="160,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Salary_TextBox}" TextChanged="Salary_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Bonus"/>
+            <TextBox    Width="150" Height="35" Margin="160,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Bonus_TextBox}" TextChanged="Bonus_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,215" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="TaxedAmount"/>
+            <TextBox    Width="150" Height="35" Margin="160,210" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding TaxedAmount_TextBox}" TextChanged="TaxedAmount_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,265" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Total"/>
+            <TextBox    Width="150" Height="35" Margin="160,260" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Total_TextBox}" TextChanged="Total_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="40" Margin="10,315" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note"/>
+            <TextBox    Width="320" Height="100" Margin="20,355" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Note_TextBox}" TextChanged="Note_TextBox_changed"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

@@ -1,0 +1,41 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Personal_Economy_Display.ViewModels"
+    x:Class="Personal_Economy_Display.Views.EntertainmentView"
+    x:DataType="vm:EntertainmentViewModel">
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="360" Height="560" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Width="150" Height="35" Margin="10,15" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Streaming Services" TextWrapping="WrapWithOverflow"/>
+            <TextBox    Width="160" Height="35" Margin="170,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding StreamingServicesSubscriptionsTextBox}" TextChanged="StreamingServicesSubscriptionsTextBox_changed"/>
+            
+            <TextBlock  Width="160" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Concert Tickets"/>
+            <TextBox    Width="160" Height="35" Margin="170,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding ConcertTicketsTextBox}" TextChanged="ConcertTicketsTextBox_changed"/>
+        
+            <TextBlock  Width="160" Height="35" Margin="10,115" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Sporting Events"/>
+            <TextBox    Width="160" Height="35" Margin="170,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding SportingEventsTextBox}" TextChanged="SportingEventsTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="40" Margin="10,165" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Movies"/>
+            <TextBox    Width="160" Height="35" Margin="170,160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding MoviesTextBox}" TextChanged="MoviesTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,215" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Books"/>
+            <TextBox    Width="160" Height="35" Margin="170,210" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding BooksTextBox}" TextChanged="BooksTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,265" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Hobbies"/>
+            <TextBox    Width="160" Height="35" Margin="170,260" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding HobbiesTextBox}" TextChanged="HobbiesTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="40" Margin="10,315" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Vacations"/>
+            <TextBox    Width="160" Height="35" Margin="170,310" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding VacationTextBox}" TextChanged="VacationTextBox_changed"/>
+
+            <TextBlock  Width="110" Height="40" Margin="10,365" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Bar Hopping"/>
+            <TextBox    Width="160" Height="35" Margin="170,360" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding BarHoppingTextBox}" TextChanged="BarHoppingTextBox_changed" />
+
+            <TextBlock  Width="110" Height="35" Margin="10,410" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Total"/>
+            <TextBlock  Width="165" Height="35" Margin="170,415" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" TextAlignment="Center" Text="{Binding TotalTextBox}"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,465" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Note"/>
+            <TextBox    Width="320" Height="100" Margin="20,490" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding NoteTextBox}" TextChanged="NoteTextBox_changed"/>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

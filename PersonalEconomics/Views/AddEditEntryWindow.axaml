@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:views="using:Personal_Economy_Display.Views"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Personal_Economy_Display.ViewModels"
+        x:Class="Personal_Economy_Display.Views.AddEditEntryWindow"
+        x:DataType="vm:AddEditEntryViewModel"
+        x:Name="Root"
+        Title="Data Entries"
+        Width="910"
+        Height="600"
+        MinWidth="400"
+        MinHeight="300"
+        >
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:AddEditEntryViewModel />
+    </Design.DataContext>
+
+    
+
+    <Grid>
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TabbedPage  Margin="0, 5" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                
+                <!-- ###############<<<<< Expense >>>>>###############<<<<< Expense >>>>>###############<<<<< Expense >>>>>###############<<<<< Expense >>>>>###############<<<<< Expense >>>>>############### -->
+                <ContentPage Header="Expense">
+                    <ContentPage.Icon>
+                        <Image Source="/Assets/Expense.ico" Width="72" Height="72"/>
+                    </ContentPage.Icon>
+                    
+                    <views:ExpenseView />
+                </ContentPage>
+                
+                <!-- ###############<<<<< Income >>>>>###############<<<<< Income >>>>>###############<<<<< Income >>>>>###############<<<<< Income >>>>>###############<<<<< Income >>>>>############### -->
+                <ContentPage Header="Income">
+                    <ContentPage.Icon>
+                        <Image Source="/Assets/Income.ico" Width="72" Height="72"/>
+                    </ContentPage.Icon>
+
+                    <views:IncomeView />
+                </ContentPage>
+
+                <!-- ###############<<<<< Entries >>>>>###############<<<<< Entries >>>>>###############<<<<< Entries >>>>>###############<<<<< Entries >>>>>###############<<<<< Entries >>>>>############### -->
+                <ContentPage Header="Entries">
+                    <ContentPage.Icon>
+                        <Image Source="/Assets/EntriesOfDocuments.ico" Width="72" Height="72"/>
+                    </ContentPage.Icon>
+
+
+                </ContentPage>
+
+            </TabbedPage>
+
+        </Viewbox>
+    </Grid>
+</Window>
