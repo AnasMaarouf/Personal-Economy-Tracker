@@ -12,7 +12,10 @@
             <TextBox    Width="110" Height="35" Margin="120,10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding TakeoutFood_TextBox}" TextChanged="TakeoutFood_TextBox_changed"/>
 
             <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Electronics"/>
-            <TextBox    Width="110" Height="35" Margin="120,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" Text="{Binding Electronics_TextBox}"/>
+            <TextBox    Width="110" Height="35" Margin="120,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" Text="{Binding Electronics_TextBox}" TextChanged="Electronics_TextBox_changed"/>
+
+            <TextBlock  Width="110" Height="35" Margin="10,65" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Other"/>
+            <TextBox    Width="110" Height="35" Margin="120,60" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" Text="{Binding Electronics_TextBox}" TextChanged="Other_TextBox_changed"/>
 
             <TextBlock  Width="110" Height="35" Margin="10,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Left" Text="Total"/>
             <TextBlock  Width="115" Height="35" Margin="120,110" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" Text="{Binding Total_TextBox}"/>

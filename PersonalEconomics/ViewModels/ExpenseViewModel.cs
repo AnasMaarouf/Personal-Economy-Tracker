@@ -24,7 +24,14 @@ public partial class ExpenseViewModel : ObservableObject {
 
     public bool LoadExpenseData(DateOnly day) {
         
-        string path = string.Concat($"DataEntries/{day.Year.ToString()}/{day.Month.ToString()}/{day.Day.ToString()}/Expense");
+        string path = Path.Combine(
+            AppContext.BaseDirectory,
+            "DataEntries",
+            day.Year.ToString(),
+            day.Month.ToString(),
+            day.Day.ToString(),
+            "Expense"
+        );
         
         if(!Directory.Exists(path)) {
             return false;

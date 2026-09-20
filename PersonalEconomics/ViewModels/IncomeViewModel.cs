@@ -50,7 +50,14 @@ public partial class IncomeViewModel : ObservableObject {
     public partial CategoryViewModel? SelectedCategory { get; set; } = null;
 
     public bool LoadIncomeData(DateOnly day) {
-        string path = string.Concat($"DataEntries/{day.Year.ToString()}/{day.Month.ToString()}/{day.Day.ToString()}/Income");
+        string path = Path.Combine(
+            AppContext.BaseDirectory,
+            "DataEntries",
+            day.Year.ToString(),
+            day.Month.ToString(),
+            day.Day.ToString(),
+            "Income"
+        );
         
         if(!Directory.Exists(path)) {
             return false;

@@ -36,10 +36,18 @@ public partial class ExpenseView : UserControl {
             System.Console.WriteLine($"[OK]             |----> Datacontext in ExpenseViewModel.axaml.cs is ExpenseViewModel.");
         #endif
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}")) {
+        string destinationDirectory = Path.Combine(
+            AppContext.BaseDirectory,
+            "DataEntries",
+            viewModel.PickedDate.Year.ToString(),
+            viewModel.PickedDate.Month.ToString(),
+            viewModel.PickedDate.Day.ToString()
+        );
+
+        if(!Directory.Exists($"{destinationDirectory}")) {
             #if DEBUG
                 System.Console.WriteLine($"[WARNING]        |----> Directory does not exist.");
-                System.Console.WriteLine($"                 |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}\"");
+                System.Console.WriteLine($"                 |           |----> Directory: \"{destinationDirectory}\"");
             #endif
             
             try {
@@ -47,7 +55,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Creating directory ...");
                 #endif
                 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}");
+                Directory.CreateDirectory($"{destinationDirectory}");
                 
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -118,15 +126,15 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: destinationDirectory/Expense");
                     System.Console.WriteLine($"                 |           |");
                 #endif
                 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -198,15 +206,15 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Files")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Files")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Files\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Files\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
                 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Files");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Files");
                 
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -280,7 +288,8 @@ public partial class ExpenseView : UserControl {
 
 
         // saves files to "Files" folder.
-        string destinationDirectory = Path.Combine(
+        destinationDirectory = Path.Combine(
+            AppContext.BaseDirectory,
             "DataEntries",
             viewModel.PickedDate.Year.ToString(),
             viewModel.PickedDate.Month.ToString(),
@@ -319,26 +328,32 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-
-
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries")) {
+        destinationDirectory = Path.Combine(
+            AppContext.BaseDirectory,
+            "DataEntries",
+            viewModel.PickedDate.Year.ToString(),
+            viewModel.PickedDate.Month.ToString(),
+            viewModel.PickedDate.Day.ToString()
+        );
+        
+        if(Directory.Exists($"{destinationDirectory}/Expense/Groceries")) {
             
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries");
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Groceries");
             foreach (var file in dirFiles)
                 File.Delete(file);
             
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries");
+            Directory.Delete($"{destinationDirectory}/Expense/Groceries");
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Groceries")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Groceries\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
                 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Groceries");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -410,23 +425,23 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment")) {
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment");
+        if(Directory.Exists($"{destinationDirectory}/Expense/Apartment")) {
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Apartment");
             foreach (var file in dirFiles)
                 File.Delete(file);
 
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment");
+            Directory.Delete($"{destinationDirectory}/Expense/Apartment");
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Apartment")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Apartment\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Apartment");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -499,23 +514,23 @@ public partial class ExpenseView : UserControl {
         }
 
 
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment")) {
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment");
+        if(Directory.Exists($"{destinationDirectory}/Expense/Entertainment")) {
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Entertainment");
             foreach (var file in dirFiles)
                 File.Delete(file);
             
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment");
+            Directory.Delete($"{destinationDirectory}/Expense/Entertainment");
         }
         
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Entertainment")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Entertainment\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Entertainment");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -587,23 +602,23 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming")) {
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming");
+        if(Directory.Exists($"{destinationDirectory}/Expense/Personal care & grooming")) {
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Personal care & grooming");
             foreach (var file in dirFiles)
                 File.Delete(file);
             
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming");
+            Directory.Delete($"{destinationDirectory}/Expense/Personal care & grooming");
         }
         
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Personal care & grooming")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Personal care & grooming\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Personal care & grooming");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -675,23 +690,23 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle")) {
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle");
+        if(Directory.Exists($"{destinationDirectory}/Expense/Vehicle")) {
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Vehicle");
             foreach (var file in dirFiles)
                 File.Delete(file);
             
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle");
+            Directory.Delete($"{destinationDirectory}/Expense/Vehicle");
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Vehicle")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Vehicle\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Vehicle");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -763,23 +778,23 @@ public partial class ExpenseView : UserControl {
             }
         }
 
-        if(Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous")) {
-            var dirFiles = Directory.EnumerateFiles($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous");
+        if(Directory.Exists($"{destinationDirectory}/Expense/Miscellaneous")) {
+            var dirFiles = Directory.EnumerateFiles($"{destinationDirectory}/Expense/Miscellaneous");
             foreach (var file in dirFiles)
                 File.Delete(file);
             
-            Directory.Delete($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous");
+            Directory.Delete($"{destinationDirectory}/Expense/Miscellaneous");
         }
 
-        if(!Directory.Exists($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous")) {
+        if(!Directory.Exists($"{destinationDirectory}/Expense/Miscellaneous")) {
             try {
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Creating subdirectory ...");
-                    System.Console.WriteLine($"                 |           |           |----> Directory: \"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous\"");
+                    System.Console.WriteLine($"                 |           |           |----> Directory: \"{destinationDirectory}/Expense/Miscellaneous\"");
                     System.Console.WriteLine($"                 |           |");
                 #endif
 
-                Directory.CreateDirectory($"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous");
+                Directory.CreateDirectory($"{destinationDirectory}/Expense/Miscellaneous");
             
                 #if DEBUG
                     System.Console.WriteLine($"[OK]             |           |----> Directory successfully created.");
@@ -861,7 +876,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Apartment";
+                string path = $"{destinationDirectory}/Expense/Apartment";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -906,7 +921,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                            Path.Combine(path, $"{childCategory.Name}.json"),
+                            json_category
+                        );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1005,7 +1023,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Groceries";
+                string path = $"{destinationDirectory}/Expense/Groceries";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -1050,7 +1068,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                                Path.Combine(path, $"{childCategory.Name}.json"),
+                                json_category
+                            );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1149,7 +1170,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Entertainment";
+                string path = $"{destinationDirectory}/Expense/Entertainment";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -1194,7 +1215,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                                Path.Combine(path, $"{childCategory.Name}.json"),
+                                json_category
+                            );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1293,7 +1317,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Personal care & grooming";
+                string path = $"{destinationDirectory}/Expense/Personal care & grooming";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -1338,7 +1362,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                                Path.Combine(path, $"{childCategory.Name}.json"),
+                                json_category
+                            );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1437,7 +1464,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Vehicle";
+                string path = $"{destinationDirectory}/Expense/Vehicle";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -1482,7 +1509,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                                Path.Combine(path, $"{childCategory.Name}.json"),
+                                json_category
+                            );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1581,7 +1611,7 @@ public partial class ExpenseView : UserControl {
                     System.Console.WriteLine($"                 |           |----> Child count:     {category.Children.Count}");
                 #endif
 
-                string path = $"DataEntries/{viewModel.PickedDate.Year.ToString()}/{viewModel.PickedDate.Month.ToString()}/{viewModel.PickedDate.Day.ToString()}/Expense/Miscellaneous";
+                string path = $"{destinationDirectory}/Expense/Miscellaneous";
                 
                 #if DEBUG
                     System.Console.WriteLine($"                 |           |----> Data entry path: {path}");
@@ -1626,7 +1656,10 @@ public partial class ExpenseView : UserControl {
                                 System.Console.WriteLine($"                 |");
                             #endif
                             
-                            File.WriteAllText($"{path}/{childCategory.Name}", json_category);
+                            File.WriteAllText(
+                                Path.Combine(path, $"{childCategory.Name}.json"),
+                                json_category
+                            );
                             
                             #if DEBUG
                                 System.Console.WriteLine($"[OK]             |----> File Written.");
@@ -1706,7 +1739,7 @@ public partial class ExpenseView : UserControl {
                             return;
                         }
 
-                    } catch(NotSupportedException thrownException) {
+                    } catch(NotSupportedException thrownException) { 
                         #if DEBUG
                             System.Console.WriteLine($"[ERROR]          |----> Exception thrown:");
                             System.Console.WriteLine($"                             |----> Exception name:    NotSupportedException");
